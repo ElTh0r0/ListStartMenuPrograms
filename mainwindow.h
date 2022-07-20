@@ -12,7 +12,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 #ifndef MAINWINDOW_H_
@@ -22,36 +22,35 @@
 #include <QMap>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui {
+class MainWindow;
+}
 QT_END_NAMESPACE
 
 class QTableWidget;
 
-struct App
-{
-    QString name;
-    QIcon icon;
-    QString filepath;
+struct App {
+  QString name;
+  QIcon icon;
+  QString filepath;
 };
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
-public:
-    MainWindow(QWidget *pParent = nullptr);
-    ~MainWindow();
+ public:
+  MainWindow(QWidget *pParent = nullptr);
+  ~MainWindow();
 
-private:
-    auto getAllUsersStartMenuPath() -> QString;
-    void getImageFileextAssociates(const QStringList &sListImgExt);
-    void getShellLinks(const QString &sFolder,
-                       const QString &sRegExFilter);
+ private:
+  auto getAllUsersStartMenuPath() -> QString;
+  void getImageFileExtAssociates(const QStringList &sListImgExt);
+  void getShellLinks(const QString &sFolder, const QString &sRegExFilter);
 
-    Ui::MainWindow *m_pUi;
-    QTableWidget *m_pTable;
-    QMap<QString, App> m_GraphicsAppList;
-    QMap<QString, App> m_MiscAppList;
+  Ui::MainWindow *m_pUi;
+  QTableWidget *m_pTable;
+  QMap<QString, App> m_GraphicsAppList;
+  QMap<QString, App> m_MiscAppList;
 };
 
 #endif  // MAINWINDOW_H_
